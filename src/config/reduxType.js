@@ -1,5 +1,7 @@
 const typeRedux = {
   FETCH_RANDOM_PHOTO: 'FETCH_RANDOM_PHOTO',
+  FETCH_SEARCH_PHOTO: 'FETCH_SEARCH_PHOTO',
+  FETCH_SEARCH_USER: 'FETCH_SEARCH_USER',
 };
 
 export default typeRedux;
