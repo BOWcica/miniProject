@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = ({ image }) => {
   return (
-    <div className="basis-1/4">
+    <div className="mb-4 break-inside-avoid-column">
       <div className="card card-bordered">
         <div className="avatar flex align-center items-stretch mb-8">
           <div className="rounded-full w-24 h-24 self-center">
