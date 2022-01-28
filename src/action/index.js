@@ -32,7 +32,17 @@ export const fetchSearchPhoto = (search) => async (dispatch) => {
 };
 
 export const fetchUser = (userName) => async (dispatch) => {
-  const res = await api.get(`/users/${userName}/photos`);
-  console.log(res.data);
+  const res = await api.get(`/users/${userName}`);
 dispatch({ type: reduxType.FETCH_SEARCH_USER, payload: res.data });
+};
+
+export const fetchUserAlbum = (userName) => async (dispatch) => {
+  const res = await api.get(`/users/${userName}/photos`);
+dispatch({ type: reduxType.FETCH_SEARCH_USERALBUM, payload: res.data });
+};
+
+export const likePhoto = (IdPhoto) => async (dispatch) => {
+  const res = await api.post(`/photos/${IdPhoto}/like`);
+  console.log(res.data);
+dispatch({ type: reduxType.FETCH_LIKE_PHOTO, payload: res.data });
 };

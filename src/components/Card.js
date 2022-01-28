@@ -1,13 +1,16 @@
-import React from "react";
+import React,{ useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import { AiOutlineEye } from "react-icons/ai";
+import { likePhoto } from "../action"
+import { useDispatch } from "react-redux";
 
-// { image,views,profile,exif,like }
-const Card = ({ image, views, profile, exif, likes }) => {
+const Card = ({ imageId, image, views, profile, exif, likes }) => {
+  const disPatch = useDispatch();
+  
+ 
   return (
     <div className="mb-4 break-inside-avoid-column card-post">
       <div className="card card-bordered">
-        <Link to={`/profile/${profile.username}`}>
+        <Link to={`/album/${profile.username}`}>
           <div className="avatar flex align-center items-stretch mb-3">
             <div className="rounded-full w-10 h-10 self-center ml-5 mt-3">
               <img src={profile.profile_image.small} />
@@ -22,14 +25,16 @@ const Card = ({ image, views, profile, exif, likes }) => {
           <img src={image} />
         </figure>
         <div className="card-body">
-          {/* <h2 className="card-title">
-            Top image
-            <div className="badge mx-2 badge-secondary">NEW</div>
-          </h2> */}
-          <p className="text-slate-600">Likes : {likes}</p>
-          <p className="text-slate-600">Views : {views}</p>
-          <p className="text-slate-600">Camera : {exif.name || ""}</p>
+          <p className="text-slate-600">{likes?"Likes :" + likes:"Likes : 0" }</p>
+
+          <p className="text-slate-600">{views?"Views :" + views:"Views : 0"}</p>
+
+          <p className="text-slate-600">{exif.name?"Camera :"+ exif.name:""}</p>
         </div>
+        <div  className="m-3 btn" onClick={()=>{
+          disPatch(likePhoto(imageId));
+          console.log(`Like : ${imageId}`);
+        }}>Like</div>
       </div>
     </div>
   );
