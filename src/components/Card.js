@@ -31,10 +31,10 @@ const Card = ({ imageId, image, views, profile, exif, likes }) => {
 
           <p className="text-slate-600">{exif.name?"Camera :"+ exif.name:""}</p>
         </div>
-        <div  className="m-3 btn" onClick={()=>{
+        {/* <div  className="m-3 btn" onClick={()=>{
           disPatch(likePhoto(imageId));
           console.log(`Like : ${imageId}`);
-        }}>Like</div>
+        }}>Like</div> */}
       </div>
     </div>
   );

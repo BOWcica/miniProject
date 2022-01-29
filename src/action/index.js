@@ -31,8 +31,10 @@ export const fetchSearchPhoto = (search) => async (dispatch) => {
   dispatch({ type: reduxType.FETCH_SEARCH_PHOTO, payload: res.data.results });
 };
 
-export const fetchUser = (userName) => async (dispatch) => {
-  const res = await api.get(`/users/${userName}`);
+export const fetchUser = (username) => async (dispatch) => {
+  // console.log(`fetch user by username :${ userName}`)
+  const res = await api.get(`/users/${username}`);
+  // console.log(res.data);
 dispatch({ type: reduxType.FETCH_SEARCH_USER, payload: res.data });
 };
 

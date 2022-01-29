@@ -21,6 +21,7 @@ const Homepage = () => {
         views={el.views}
         exif={el.exif ?? ""}
         likes={el.likes}
+        key={el.id}
       />
     ));
   };
